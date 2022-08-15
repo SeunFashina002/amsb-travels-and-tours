@@ -1,0 +1,149 @@
+{% extends 'base.html' %} 
+{% block head_script%} 
+{% endblock %} 
+
+{% block content %}
+<section class="p-1 mt-5">
+  <!-- <div class="container mt-5"> -->
+  <form
+    class="agreement-form"
+    id="agreement_form"
+    method="post"
+    enctype="multipart/form-data"
+  >
+    {% csrf_token %}
+    <h1 class="text-center mb-5 mt-5 text-uppercase">agreement Form</h1>
+
+    I
+    <input class="agreement-input" required name="client_name" type="text" />
+    accepts
+    <ul class="agreement-list">
+      <li>That I am the above named person</li>
+      <li>That I am aware of <span class="h5">AMSB CONNECTS LTD.</span></li>
+      <li>That the payment is charged for the visa package only.</li>
+      <li>
+        That Three Hundred Thousand naira only (N300,000) is collected for
+        applications fees inclusive and Biometric/Visa fees varies by countries
+        non- inclusive (These are non refundable fees). Prices are prior to
+        change
+      </li>
+      <li>
+        That AMSB CONNECTS LIMITED will handle my Student/ Visitor Tourist/
+        Medical Visa Application
+      </li>
+      <li>That I am aware contract last One year from the date of signature</li>
+      <li>
+        That this agreement is limited to Visa outcome alone and nothing more
+      </li>
+      <li>
+        That I am aware the processing time varies, (I.e. Three months to One
+        year)
+      </li>
+      <li>
+        That I am aware the sum balance agreed will be balanced immediately Visa
+        is approved.
+      </li>
+      <li>That I am aware the deposit covers Admission fee/ Initial process</li>
+      <li>
+        That I will be responsible for subsequent visa fee incase Visa is
+        refused.
+      </li>
+      <li>
+        That I am aware that visa is granted based on the visa officer
+        discretion.
+      </li>
+      <li>
+        That signing this agreement means I have read and accepted the terms and
+        condition
+      </li>
+      <li>That this agreement is now needed for record purpose</li>
+    </ul>
+
+    <div class="mt-5">
+      <div id="signature" class="signatured-pad"></div>
+
+      <button type="button" class="btn btn-warning mt-3 mb-5" id="preview">
+        Send
+      </button>
+    </div>
+
+    <div class="img-sign mb-0">
+      <img class="mb-0" name="sign" id="signaturePreview" src="" alt="" />
+      <input type="hidden" name="image_url" value="" id="imageUrlField">
+    </div>
+    <a>
+      <input class="mt-o pt-0 agreement-input" type="text" />
+    </a>
+    <p>Applicant Signature</p>
+
+    <button
+      class="btn btn-warning btn-block mb-3 mt-5 btn-login"
+      type="submit"
+      id="submitAgreement"
+      disabled
+    >
+      submit
+    </button>
+
+  </form>
+  <!-- </div> -->
+
+  <script type="text/javascript">
+    //    const LEFT_BUTTON = 1;
+    //  const SERVICE_ID = "service_yh0v8wm";
+    //  const TEMPLATE_ID = "template_0o43zgt";
+    var signature = $("#signature");
+    let signatureEntered = false;
+
+    function isCanvasBlank(canvas) {
+      return !canvas
+        .getContext("2d")
+        .getImageData(0, 0, canvas.width, canvas.height)
+        .data.some((channel) => channel !== 0);
+    }
+
+    //    function sendEmail(service_id, template_id, form) {
+    //      emailjs
+    //        .sendForm(service_id, template_id, form)
+    //        .then(function () {
+    //          console.log("SUCCESS!");
+    //        })
+    //        .catch((err) => console.log("Error"));
+    //    }
+
+    signature.jSignature({ UndoButton: true });
+
+    $("#preview").click(function () {
+      var data = signature.jSignature("getData", "image");
+      $("#signaturePreview").attr("src", "data:" + data);
+       $("#imageUrlField").attr("value", "data:" + data)
+
+      let signatureCanvas = document.querySelector("canvas.jSignature");
+
+      if (isCanvasBlank(signatureCanvas)) {
+        console.log("Signature not entered ");
+        $("#submitAgreement").attr("disabled", true);
+
+       
+      } else {
+        console.log("Signature  entered");
+        $("#submitAgreement").attr("disabled", false);
+      }
+    });
+
+    $("#download").click(function () {
+      var image = $("#signaturePreview")[0];
+      this.href = image.src;
+    });
+
+    //    $("#submitAgreement").on("click", (e) => {
+    //      sendEmail(
+    //        SERVICE_ID,
+    //        TEMPLATE_ID,
+    //        document.getElementById("agreement_form")
+    //      );
+    //    });
+  </script>
+</section>
+
+{% endblock %}

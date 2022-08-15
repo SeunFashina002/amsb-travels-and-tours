@@ -1,0 +1,380 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <section class="p-1 mt-5">
+      <!-- <div class="container mt-5 text-center"> -->
+        <form action="" class="mt-5" method="post">
+          <h3 class="text-center pt-5 text-uppercase mt-5 mb-5 HT">First Application Form</h3>
+
+          <div class="d-md-flex form-div">
+            <div class="group">
+              <i class="bi h3 bi-person-circle"></i>
+              <input
+                class="name-input"
+                required
+                type="text"
+                name=""
+                placeholder="First Name"
+                id=""
+              />
+            </div>
+
+            <div class="group">
+              <i class="bi h3 bi-person-circle"></i>
+              <input
+                class="name-input"
+                required
+                type="text"
+                name=""
+                placeholder="Middle Name"
+                id=""
+              />
+            </div>
+          </div>
+
+          <div class="d-md-flex form-div">
+            <div class="group">
+              <i class="bi h3 bi-person-circle"></i>
+              <input
+                class="name-input"
+                required
+                type="text"
+                name=""
+                placeholder="Last name"
+                id=""
+              />
+            </div>
+
+            <p class="mt-md-3 ms-2 ms-md-0 text-start">D.O.B</p>
+
+            <div class="group">
+              <i class="bi h3 bi-calendar-date-fill"></i>
+              <input
+                class="name-input"
+                required
+                type="date"
+                id="dob"
+                name=""
+                placeholder="date of birth"
+                id=""
+              />
+            </div>
+          </div>
+
+          <div class="d-md-flex">
+            <div class="text-start">
+              <p class="ms-2 ms-md-3"><strong>Gender</strong></p>
+              <div
+                class="d-md-flex justify-content-between text-start align-items-center"
+              >
+                <label class="me-1 ms-2" for="male">male</label>
+                <input
+                  class="me-1 ms-md-2"
+                  type="radio"
+                  name="gender"
+                  id="male"
+                />
+                <label class="me-1 ms-md-2" for="female">female</label>
+                <input
+                  class="me-1 ms-md-2"
+                  type="radio"
+                  name="gender"
+                  id="female"
+                />
+                <label class="ms-md-2" for="other">other</label>
+                <input
+                  class="me-1 me-5 ms-md-2"
+                  type="radio"
+                  name="gender"
+                  id="other"
+                />
+              </div>
+            </div>
+
+            <div class="text-start mb-2">
+              <p class="ms-2 ms-md-5"><strong>Relationship</strong></p>
+              <div
+                class="d-md-flex text-start justify-content-between align-items-center"
+              >
+                <label class="me-1 ms-2 ms-md-2" for="married">Married</label>
+                <input
+                  class="me-1 ms-md-2"
+                  type="radio"
+                  name="relationship"
+                  id="married"
+                />
+                <label class="me-1 ms-md-2" for="female">Single</label>
+                <input
+                  class="me-1 ms-md-2"
+                  type="radio"
+                  name="relationship"
+                  id="single"
+                />
+                <label class="me-1 ms-md-2" for="other">other</label>
+                <input
+                  class="me-1 me-1 ms-md-2"
+                  type="radio"
+                  name="relationship"
+                  id="other"
+                />
+              </div>
+            </div>
+
+            <div class="text-start">
+              <p class="ms-2 ms-md-3"><strong>Employed</strong></p>
+              <div
+                class="d-md-flex ms-md-3 justify-content-between text-start align-items-center"
+              >
+                <label class="me-1 ms-2" for="yes">Yes</label>
+                <input
+                  class="me-1 ms-md-2"
+                  type="radio"
+                  name="employment"
+                  id="yes"
+                />
+                <label class="me-1 ms-md-2" for="no">No</label>
+                <input
+                  class="me-1 ms-md-2"
+                  type="radio"
+                  name="employment"
+                  id="no"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="d-md-flex form-div">
+            <div class="group">
+              <i class="bi h3 bi-house-fill"></i>
+              <input
+                class="name-input"
+                type="text"
+                name=""
+                placeholder="Address"
+              />
+            </div>
+
+            <div class="group">
+              <i class="bi h3 bi-flag-fill"></i>
+              <input
+                class="name-input"
+                type="text"
+                name=""
+                placeholder="citizenship"
+                id=""
+              />
+            </div>
+          </div>
+
+          <div class="d-md-flex form-div">
+            <div class="group">
+              <i class="bi h3 bi-envelope-fill"></i>
+              <input
+                class="name-input"
+                type="email"
+                name=""
+                placeholder="myemail@gmail.com"
+              />
+            </div>
+
+            <div class="group">
+              <i class="bi h3 bi-telephone-fill"></i>
+              <input
+                class="name-input"
+                type="tel"
+                name=""
+                placeholder="+234-888-888-8888"
+                id=""
+              />
+            </div>
+          </div>
+
+          <p class="text-start ms-2 h6">
+            School information is only essential for those travelling for
+            educational purpose.
+          </p>
+          <div class="d-md-flex form-div">
+            <div class="group">
+              <i class="bi h3 bi-mortarboard"></i>
+              <input
+                class="name-input"
+                type="text"
+                name=""
+                placeholder="High School"
+              />
+            </div>
+
+            <div class="group">
+              <i class="bi h3 bi-mortarboard-fill"></i>
+              <input
+                class="name-input"
+                type="text"
+                name=""
+                placeholder="post secondary Education(optional for undergraduate)"
+                id=""
+              />
+            </div>
+          </div>
+
+          <p class="text-start ms-2 h6">
+            This information is essential for business applicant only.
+          </p>
+
+          <div class="d-md-flex" id="">
+            <div class="group">
+              <i class="bi h3 bi-question-square-fill"></i>
+              <input
+                class="name-input"
+                type="text"
+                name=""
+                placeholder="Place of work"
+              />
+            </div>
+
+            <div class="group">
+              <i class="bi h3 bi-question-square-fill"></i>
+              <input
+                class="name-input"
+                type="text"
+                name=""
+                placeholder="Have you travelled before?"
+              />
+            </div>
+
+            <div class="group">
+              <i class="bi h3 bi-question-square-fill"></i>
+              <input
+                class="name-input"
+                type="text"
+                name=""
+                placeholder="where?"
+              />
+            </div>
+          </div>
+
+          <p class="text-start ms-2 h6">
+            This information is essential for medical applicant only.
+          </p>
+
+          <div class="d-md-flex" id="">
+            <div class="group">
+              <!-- <i class="bi h3 bi-question-square-fill"></i> -->
+              <i class="bi bi-heart-pulse h3"></i>
+              <input
+                class="name-input"
+                type="text"
+                name=""
+                placeholder="Type of illness"
+              />
+            </div>
+
+            <div class="group">
+              <!-- <i class="bi h3 bi-question-square-fill"></i> -->
+              <i class="bi bi-hospital h3"></i>
+
+              <input
+                class="name-input"
+                type="text"
+                name=""
+                placeholder="Do you have accommodation?"
+              />
+            </div>
+          </div>
+
+          <div class="d-md-flex form-div">
+            <div class="group">
+              <i class="bi h3 bi-translate"></i>
+              <input
+                class="name-input"
+                type="text"
+                name=""
+                placeholder="native language"
+              />
+            </div>
+
+            <div class="group">
+              <i class="bi h3 bi-translate"></i>
+              <input
+                class="name-input"
+                type="text"
+                name=""
+                placeholder="other languages"
+                id=""
+              />
+            </div>
+          </div>
+
+          <div class="">
+            <div>
+              <p class="text-start ms-2">
+                If you have an international passport fill the form below.
+                <i class="bi bi-arrow-down-circle-fill h4"></i>
+              </p>
+            </div>
+
+            <div class="d-md-flex" id="passport-details">
+              <div class="group">
+                <i class="bi bi-journal"></i>
+                <input
+                  class="name-input"
+                  type="text"
+                  name=""
+                  placeholder="passport number"
+                />
+              </div>
+
+              <p class="mt-md-3 ms-2 ms-md-0 text-start">Date Issued</p>
+              <div class="group">
+                <i class="bi h3 bi-calendar-date-fill"></i>
+                <input class="name-input" type="date" name="" />
+              </div>
+
+              <p class="mt-md-3 ms-2 ms-md-0 text-start">Date Expired</p>
+              <div class="group">
+                <i class="bi h3 bi-calendar-date-fill"></i>
+                <input class="name-input" type="date" name="" />
+              </div>
+            </div>
+          </div>
+
+          <div class="">
+            <div>
+              <p class="text-start ms-2">
+                If you have been refused visa before, fill the form below.
+                <i class="bi bi-arrow-down-circle-fill h4"></i>
+              </p>
+            </div>
+
+            <div class="d-md-flex" id="visa-details">
+              <div class="group">
+                <i class="bi h3 bi-question-square-fill"></i>
+                <input
+                  class="name-input"
+                  type="text"
+                  name=""
+                  placeholder="which country"
+                />
+              </div>
+
+              <div class="group">
+                <i class="bi h3 bi-question-square-fill"></i>
+                <input
+                  class="name-input"
+                  type="text"
+                  name=""
+                  placeholder="Reason?"
+                />
+              </div>
+            </div>
+          </div>
+
+          <button
+          class="btn btn-warning btn-block mb-3 mt-5 btn-login" type="button">
+            submit
+          </button>
+        </form>
+
+      <!-- </div> -->
+    </section>
+
+{% endblock %}
