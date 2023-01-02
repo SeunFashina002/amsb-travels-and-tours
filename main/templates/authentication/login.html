@@ -1,0 +1,17 @@
+{% extends 'formstyle.html' %}
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+    <div class="max-w-lg mx-auto" style="margin-top: 100px;">
+        <h1 class="fs-3 text-blue fw-bold"> Login</h1>
+        <hr>
+        <form action="" method="post">
+            {% csrf_token %}
+            {{ form|crispy }}
+            <button class="btn btn-success mb-6 text-white w-lg p-2 rounded" type="submit">Login</button>
+            <p>Don't have an account?<a class="p-2 text-green" href="/signup">Signup</a></p>
+            <br>
+        </form>
+    </div>
+{% endblock content %}

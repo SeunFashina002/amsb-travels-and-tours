@@ -4,6 +4,7 @@
     <section class="p-1 mt-5">
       <!-- <div class="container mt-5 text-center"> -->
         <form action="" class="mt-5" method="post">
+          {% csrf_token %}
           <h3 class="text-center pt-5 text-uppercase mt-5 mb-5 HT">First Application Form</h3>
 
           <div class="d-md-flex form-div">
@@ -11,9 +12,9 @@
               <i class="bi h3 bi-person-circle"></i>
               <input
                 class="name-input"
-                required
+                
                 type="text"
-                name=""
+                name="first_name"
                 placeholder="First Name"
                 id=""
               />
@@ -23,9 +24,9 @@
               <i class="bi h3 bi-person-circle"></i>
               <input
                 class="name-input"
-                required
+                
                 type="text"
-                name=""
+                name="middle_name"
                 placeholder="Middle Name"
                 id=""
               />
@@ -37,9 +38,9 @@
               <i class="bi h3 bi-person-circle"></i>
               <input
                 class="name-input"
-                required
+                
                 type="text"
-                name=""
+                name="last_name"
                 placeholder="Last name"
                 id=""
               />
@@ -51,7 +52,7 @@
               <i class="bi h3 bi-calendar-date-fill"></i>
               <input
                 class="name-input"
-                required
+                
                 type="date"
                 id="dob"
                 name=""
@@ -369,7 +370,7 @@
           </div>
 
           <button
-          class="btn btn-warning btn-block mb-3 mt-5 btn-login" type="button">
+          class="btn btn-warning btn-block mb-3 mt-5 btn-login" type="submit">
             submit
           </button>
         </form>

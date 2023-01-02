@@ -29,7 +29,7 @@ def send_now(client_name, image_url):
     })
 
 
-    pdfkit.from_string(rendered, 'pdf/output.pdf', configuration = wkhtml_path)  
+    pdfkit.from_string(rendered, 'pdf/agreement.pdf', configuration = wkhtml_path)  
     result = ['pdf/output.pdf']
     for file in result:
         with open(file, 'rb') as f:
@@ -46,8 +46,37 @@ def send_now(client_name, image_url):
         smtp.send_message(msg)
 
 
+def send_apply_form(payload):
+    msg = EmailMessage()
+    msg['Subject'] = 'AMSB APPLICATION'
+    msg['From'] = EMAIL_ADDRESS
+    msg['To'] = ['contact.seunfashina@gmail.com']
+    msg.set_content('Hello, here is a copy of our application form')
+
+    
+    wkhtml_path = pdfkit.configuration(wkhtmltopdf = "C:/Program Files/wkhtmltopdf/bin/wkhtmltopdf.exe")  #by using configuration you can add path value.
+    print(payload.get('first_name'))
+    
+    rendered = render_to_string("emails/apply.html", context={
+        "first_name" : payload.get('first_name'),
+        "last_name" : payload.get('last_name'),
+    })
 
 
+    pdfkit.from_string(rendered, 'pdf/application.pdf', configuration = wkhtml_path)  
+    result = ['pdf/application.pdf']
+    for file in result:
+        with open(file, 'rb') as f:
+            file_data = f.read()
+            file_name = f.name
+            
 
+    msg.add_attachment(file_data, maintype='application', subtype='octet-stream' ,filename=file_name)
+
+
+    with smtplib.SMTP_SSL('smtp.gmail.com', 465) as smtp:
+        smtp.login(EMAIL_ADDRESS, EMAIL_PASSWORD)
+
+        smtp.send_message(msg)
 
 

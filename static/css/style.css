@@ -297,12 +297,13 @@ form {
   margin: 0.9rem;
   text-align: justify;
 }
-#signaturePreview {
+/* #signaturePreview {
   width: 50%;
 }
+
 #signature {
-  width: 100%;
-}
+  height: 100px;
+} */
 
 .gradient-custom-2 {
   /* fallback for old browsers */

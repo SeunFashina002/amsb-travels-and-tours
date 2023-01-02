@@ -180,6 +180,11 @@
                 <a href="#footer" class="nav-link">Contact</a>
               </li>
             </ul>
+            {% if request.user.is_authenticated%}
+            <a href="/logout" class="btn btn-secondary">Logout<i class="bi h4 bi-box-arrow-in-right"></i></a>  
+            {% else %}
+            <a href="/login" class="btn btn-secondary">Login<i class="bi h4 bi-box-arrow-in-right"></i></a>  
+            {% endif %}
           </div>
         </div>
       </nav>
