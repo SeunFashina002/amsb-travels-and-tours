@@ -55,7 +55,7 @@
                 
                 type="date"
                 id="dob"
-                name=""
+                name="dob"
                 placeholder="date of birth"
                 id=""
               />
@@ -73,6 +73,7 @@
                   class="me-1 ms-md-2"
                   type="radio"
                   name="gender"
+                  value="male"
                   id="male"
                 />
                 <label class="me-1 ms-md-2" for="female">female</label>
@@ -80,12 +81,14 @@
                   class="me-1 ms-md-2"
                   type="radio"
                   name="gender"
+                  value="female"
                   id="female"
                 />
                 <label class="ms-md-2" for="other">other</label>
                 <input
                   class="me-1 me-5 ms-md-2"
                   type="radio"
+                  value="other"
                   name="gender"
                   id="other"
                 />
@@ -101,22 +104,25 @@
                 <input
                   class="me-1 ms-md-2"
                   type="radio"
+                  value="married"
                   name="relationship"
                   id="married"
                 />
-                <label class="me-1 ms-md-2" for="female">Single</label>
+                <label class="me-1 ms-md-2" for="single">Single</label>
                 <input
                   class="me-1 ms-md-2"
                   type="radio"
+                  value="single"
                   name="relationship"
                   id="single"
                 />
-                <label class="me-1 ms-md-2" for="other">other</label>
+                <label class="me-1 ms-md-2" for="other_rel">other</label>
                 <input
                   class="me-1 me-1 ms-md-2"
                   type="radio"
+                  value="other"
                   name="relationship"
-                  id="other"
+                  id="other_rel"
                 />
               </div>
             </div>
@@ -130,6 +136,7 @@
                 <input
                   class="me-1 ms-md-2"
                   type="radio"
+                  value="yes"
                   name="employment"
                   id="yes"
                 />
@@ -137,6 +144,7 @@
                 <input
                   class="me-1 ms-md-2"
                   type="radio"
+                  value="no"
                   name="employment"
                   id="no"
                 />
@@ -150,7 +158,7 @@
               <input
                 class="name-input"
                 type="text"
-                name=""
+                name="address"
                 placeholder="Address"
               />
             </div>
@@ -160,7 +168,7 @@
               <input
                 class="name-input"
                 type="text"
-                name=""
+                name="citizenship"
                 placeholder="citizenship"
                 id=""
               />
@@ -173,7 +181,7 @@
               <input
                 class="name-input"
                 type="email"
-                name=""
+                name="email"
                 placeholder="myemail@gmail.com"
               />
             </div>
@@ -183,7 +191,7 @@
               <input
                 class="name-input"
                 type="tel"
-                name=""
+                name="tel"
                 placeholder="+234-888-888-8888"
                 id=""
               />
@@ -200,7 +208,7 @@
               <input
                 class="name-input"
                 type="text"
-                name=""
+                name="high_school"
                 placeholder="High School"
               />
             </div>
@@ -210,7 +218,7 @@
               <input
                 class="name-input"
                 type="text"
-                name=""
+                name="post_secondary_sch"
                 placeholder="post secondary Education(optional for undergraduate)"
                 id=""
               />
@@ -227,7 +235,7 @@
               <input
                 class="name-input"
                 type="text"
-                name=""
+                name="work"
                 placeholder="Place of work"
               />
             </div>
@@ -237,7 +245,7 @@
               <input
                 class="name-input"
                 type="text"
-                name=""
+                name="travel"
                 placeholder="Have you travelled before?"
               />
             </div>
@@ -247,7 +255,7 @@
               <input
                 class="name-input"
                 type="text"
-                name=""
+                name="travel_place"
                 placeholder="where?"
               />
             </div>
@@ -264,7 +272,7 @@
               <input
                 class="name-input"
                 type="text"
-                name=""
+                name="illness"
                 placeholder="Type of illness"
               />
             </div>
@@ -276,7 +284,7 @@
               <input
                 class="name-input"
                 type="text"
-                name=""
+                name="accomodation"
                 placeholder="Do you have accommodation?"
               />
             </div>
@@ -288,7 +296,7 @@
               <input
                 class="name-input"
                 type="text"
-                name=""
+                name="native_lang"
                 placeholder="native language"
               />
             </div>
@@ -298,7 +306,7 @@
               <input
                 class="name-input"
                 type="text"
-                name=""
+                name="other_lang"
                 placeholder="other languages"
                 id=""
               />
@@ -319,7 +327,7 @@
                 <input
                   class="name-input"
                   type="text"
-                  name=""
+                  name="passport_num"
                   placeholder="passport number"
                 />
               </div>
@@ -327,13 +335,13 @@
               <p class="mt-md-3 ms-2 ms-md-0 text-start">Date Issued</p>
               <div class="group">
                 <i class="bi h3 bi-calendar-date-fill"></i>
-                <input class="name-input" type="date" name="" />
+                <input class="name-input" type="date" name="issue_date_passport" />
               </div>
 
               <p class="mt-md-3 ms-2 ms-md-0 text-start">Date Expired</p>
               <div class="group">
                 <i class="bi h3 bi-calendar-date-fill"></i>
-                <input class="name-input" type="date" name="" />
+                <input class="name-input" type="date" name="expire_date_passport" />
               </div>
             </div>
           </div>
@@ -352,7 +360,7 @@
                 <input
                   class="name-input"
                   type="text"
-                  name=""
+                  name="visa_refusal"
                   placeholder="which country"
                 />
               </div>
@@ -362,7 +370,7 @@
                 <input
                   class="name-input"
                   type="text"
-                  name=""
+                  name="visa_refusal_reason"
                   placeholder="Reason?"
                 />
               </div>
