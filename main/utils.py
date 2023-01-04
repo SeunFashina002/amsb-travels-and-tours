@@ -30,7 +30,7 @@ def send_now(client_name, image_url, user_email):
 
 
     pdfkit.from_string(rendered, 'pdf/agreement.pdf', configuration = wkhtml_path)  
-    result = ['pdf/output.pdf']
+    result = ['pdf/agreement.pdf']
     for file in result:
         with open(file, 'rb') as f:
             file_data = f.read()
@@ -75,6 +75,7 @@ def send_apply_form(payload, user_email):
         "post_secondary_sch" : payload.get('post_secondary_sch'),
         "work" : payload.get('work'),
         "travel" : payload.get('travel'),
+        "travel_place" : payload.get('travel_place'),
         "illness" : payload.get('illness'),
         "accomodation" : payload.get('accomodation'),
         "native_lang" : payload.get('native_lang'),

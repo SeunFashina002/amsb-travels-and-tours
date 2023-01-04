@@ -33,6 +33,11 @@ def tourism(request):
 
     return render(request, 'other_pages/tourism.html')
 
+def success_modal(request):
+    # code goes here
+    return render(request, 'other_pages/modal.html')
+
+
 class Login(LoginView):
     template_name = 'authentication/login.html'
 
@@ -51,6 +56,7 @@ def agreement(request):
 
         if client_name != "":
             send_now(client_name=client_name, image_url=image_url, user_email=user_email)
+            return redirect('apply')
 
         else:
             return redirect('agreement')
@@ -127,6 +133,7 @@ def form(request):
         }
 
         send_apply_form(payload=context, user_email=user_email)
+        return redirect('success')
 
     return render(request, 'forms/form.html')
 

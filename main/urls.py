@@ -13,7 +13,9 @@ urlpatterns = [
     path('medical/', views.medical, name="medical"),
     path('tourism/', views.tourism, name="tourism"),
     path('agreement/', views.agreement, name="agreement"),
-    path('apply/', views.form, name="form"),
+    path('apply/', views.form, name="apply"),
+    path('success/', views.success_modal, name="success"),
+    
 
     path('logout/', LogoutView.as_view() , name='logout'),
 
