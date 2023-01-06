@@ -1,6 +1,4 @@
-from django.core.mail import send_mail
 from django.shortcuts import redirect, render
-from django.template.loader import render_to_string
 from .utils import send_apply_form, send_now
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login
@@ -8,13 +6,12 @@ from .forms import RegisterForm
 from django.contrib.auth.views import LoginView
 from django.contrib.auth.models import User
 
+
 # Create your views here.
 
 def home(request):
 
     return render(request, 'home.html')
-
-
 
 
 def education(request):
@@ -132,6 +129,7 @@ def form(request):
 
         }
 
+        print(context)
         send_apply_form(payload=context, user_email=user_email)
         return redirect('success')
 

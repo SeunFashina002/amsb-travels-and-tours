@@ -3,17 +3,7 @@
   <form class="agreement-form" id="agreement_form" method="post">
     <h1 style="text-align: center; margin: 3.5rem 0">AGREEMENT FORM</h1>
 
-    I
-    <!-- <input
-      class="agreement-input"
-      required
-      style="border: none; border-bottom: 1px solid black"
-      ;
-      name="client_name"
-      type="text"
-    /> -->
-
-    {{client_name}} accepts
+   <span>I <b> {{client_name}} </b> accepts</span> 
     <ul class="agreement-list">
       <li>That I am the above named person</li>
       <li>That I am aware of <span class="h5">AMSB CONNECTS LTD.</span></li>
@@ -56,23 +46,19 @@
       <li>That this agreement is now needed for record purpose</li>
     </ul>
 
-    <div style="margin-bottom: 0px">
+
       <img
         style="
-          width: 400px;
+          width: 150px;
           margin-top: 0px;
-          height: 100px;
-          display: flex;
-          justify-content: flex-start;
+          margin-bottom: 0px;
+          height: 75px;
         "
         src="{{image_url}}"
-        alt=""
+        alt="signature."
       />
-    </div>
-    <input
-      style="border: none; margin-bottom: 0px; border-bottom: 1px solid black"
-      type="text"
-    />
-    <p>Applicant Signature</p>
+    <hr style="width: 50px;"/>
+    <span  style="margin-top: 50px;">Applicant Signature.</span>
+    
   </form>
 </section>

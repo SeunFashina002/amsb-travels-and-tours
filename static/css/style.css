@@ -318,12 +318,7 @@ form {
 .btn-login {
   width: 100%;
 }
-.img-sign {
-  /* width: 20px;
-  display: flex;
-  align-items: flex-start;
-  justify-content: left; */
-}
+
 
 @media (min-width: 768px) {
   .gradient-form {

@@ -1,14 +1,36 @@
-from lib2to3.pytree import convert
 import os 
-from django.template.loader import render_to_string
-
 import smtplib
-
-import pdfkit
-
-from pdfkit.api import configuration
-
 from email.message import EmailMessage
+from io import BytesIO
+from django.http import HttpResponse
+from django.template.loader import get_template
+from xhtml2pdf import pisa
+
+class Render:
+
+    @staticmethod
+    def render(path: str, params: dict):
+        template = get_template(path)
+        html = template.render(params)
+        response = BytesIO()
+        file = open("myfile.pdf", "wb")
+        pdf = pisa.pisaDocument(BytesIO(html.encode("UTF-8")), file)
+        file.close()
+        if not pdf.err:
+            return HttpResponse(response.getvalue(), content_type='application/pdf')
+        else:
+            return HttpResponse("Error Rendering PDF", status=400)
+
+    @staticmethod
+    def render_to_file(path: str, params: dict):
+        template = get_template(path)
+        html = template.render(params)
+        extract_file = f"{path.split('/')[1]}"
+        file_name = f"{extract_file.split('.')[0]}"
+        file_path = f"pdf/{file_name}.pdf"
+        with open(file_path, 'wb') as pdf:
+            pisa.pisaDocument(BytesIO(html.encode("UTF-8")), pdf)
+        return [file_name, file_path]
 
 EMAIL_ADDRESS = "fashinaoluwaseun36@gmail.com"
 EMAIL_PASSWORD = os.environ.get('EMAIL_PASSWORD')
@@ -17,27 +39,23 @@ def send_now(client_name, image_url, user_email):
     msg = EmailMessage()
     msg['Subject'] = 'AMSB TERMS & CONDITIONS'
     msg['From'] = EMAIL_ADDRESS
-    msg['To'] = [user_email, 'amsbconnectsltd@outlook.com']
+    msg['To'] = [user_email]
     msg.set_content('Hello, thanks for agreeing to our terms. Below is a copy of your agreement form. Have a nice day!')
 
+    data = {
+    "client_name" : client_name,
+    "image_url" : image_url,
+	}
+
+
+    pdf = Render.render_to_file('emails/agreement.html', data)
     
-    wkhtml_path = pdfkit.configuration(wkhtmltopdf = "C:/Program Files/wkhtmltopdf/bin/wkhtmltopdf.exe")  #by using configuration you can add path value.
-
-    rendered = render_to_string("emails/agreement.html", context={
-        "client_name" : client_name,
-        "image_url" : image_url
-    })
-
-
-    pdfkit.from_string(rendered, 'pdf/agreement.pdf', configuration = wkhtml_path)  
-    result = ['pdf/agreement.pdf']
-    for file in result:
-        with open(file, 'rb') as f:
-            file_data = f.read()
-            file_name = f.name
-            
-
-    msg.add_attachment(file_data, maintype='application', subtype='octet-stream' ,filename=file_name)
+    with open(pdf[1], 'rb') as f:
+        file_data = f.read()
+        file_name = f"{pdf[1].split('/')[1]}"
+        
+    
+    msg.add_attachment(file_data, maintype='application', subtype='octet-stream', filename=file_name)
 
 
     with smtplib.SMTP_SSL('smtp.gmail.com', 465) as smtp:
@@ -50,16 +68,12 @@ def send_apply_form(payload, user_email):
     msg = EmailMessage()
     msg['Subject'] = 'AMSB APPLICATION'
     msg['From'] = EMAIL_ADDRESS
-    
-    msg['To'] = [user_email, 'amsbconnectsltd@outlook.com']
+    # 'amsbconnectsltd@outlook.com'
+    msg['To'] = [user_email]
     print(user_email)
-    msg.set_content('Hello, here is a copy of our application form')
+    msg.set_content('Hello, here is a copy of your application form')
 
-    
-    wkhtml_path = pdfkit.configuration(wkhtmltopdf = "C:/Program Files/wkhtmltopdf/bin/wkhtmltopdf.exe")  #by using configuration you can add path value.
-    print(payload.get('first_name'))
-    
-    rendered = render_to_string("emails/apply.html", context={
+    data = {
         "first_name" : payload.get('first_name'),
         "middle_name" : payload.get('middle_name'),
         "last_name" : payload.get('last_name'),
@@ -85,24 +99,20 @@ def send_apply_form(payload, user_email):
         "expire_date_passport" : payload.get('expire_date_passport'),
         "visa_refusal" : payload.get('visa_refusal'),
         "visa_refusal_reason" : payload.get('visa_refusal_reason'),
+	}
 
-    })
+    print('data', data)
+    pdf = Render.render_to_file('emails/apply.html', data)
+    
+    with open(pdf[1], 'rb') as f:
+        file_data = f.read()
+        file_name = f"{pdf[1].split('/')[1]}"
+        
+    
+    msg.add_attachment(file_data, maintype='application', subtype='octet-stream', filename=file_name)
 
-
-    pdfkit.from_string(rendered, 'pdf/application.pdf', configuration = wkhtml_path)  
-    result = ['pdf/application.pdf']
-    for file in result:
-        with open(file, 'rb') as f:
-            file_data = f.read()
-            file_name = f.name
-            
-
-    msg.add_attachment(file_data, maintype='application', subtype='octet-stream' ,filename=file_name)
-
-
+    
     with smtplib.SMTP_SSL('smtp.gmail.com', 465) as smtp:
         smtp.login(EMAIL_ADDRESS, EMAIL_PASSWORD)
 
         smtp.send_message(msg)
-
-

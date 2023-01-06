@@ -5,341 +5,93 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Application Form</title>
+    <style>
+      .line{
+        font-weight: 700;
+        text-decoration: underline;
+      }
+    </style>
   </head>
   <body>
+    
     <h1 style="text-align: center; margin-bottom: 50px">
       FIRST APPLICATION FORM
     </h1>
     <section>
       <div style="text-align: left">
-        First Name:
-        <input
-          type="text"
-          value="{{first_name}}"
-          style="
-            border: none;
-            margin-right: 15px;
-            border-bottom: 1px solid black;
-            width: 150px;
-          "
-        />
-
-        Middle Name:
-        <input
-          type="text"
-          value="{{middle_name}}"
-          style="
-            border: none;
-            margin-right: 15px;
-            border-bottom: 1px solid black;
-            width: 150px;
-          "
-        />
-
-        Last Name:
-        <input
-          type="text"
-          value="{{last_name}}"
-          style="
-            border: none;
-            margin-right: 15px;
-            border-bottom: 1px solid black;
-            width: 150px;
-          "
-        />
+         <span >First Name: <span class="line">___{{first_name}}__________</span></span>
+         <span >Middle Name: <span class="line">___{{middle_name}}__________</span></span>
+         <span >Last Name: <span class="line">___{{last_name}}__________</span></span>
       </div>
 
       <div style="text-align: left; margin-top: 55px">
-        Date Of Birth:
-        <input
-          value="{{dob}}"
-          type="text"
-          style="
-            border: none;
-            margin-right: 15px;
-            border-bottom: 1px solid black;
-            width: 100px;
-          "
-        />
-
-        Gender:
-        <input
-          value="{{gender}}"
-          type="text"
-          style="
-            border: none;
-            margin-left: 15px;
-            margin-right: 15px;
-            border-bottom: 1px solid black;
-            width: 100px;
-          "
-        />
-
-        Relationship:
-        <input
-          value="{{relationship}}"
-          type="text"
-          style="
-            border: none;
-            margin-right: 15px;
-            border-bottom: 1px solid black;
-            width: 120px;
-          "
-        />
+        <span >Date of Birth: <span class="line">___{{dob}}__________</span></span>
+         <span >Gender: <span class="line">___{{gender}}__________</span></span>
+         <span >Relationship: <span class="line">___{{relationship}}__________</span></span>
       </div>
 
-      <div style="text-align: left; margin-top: 55px">
-        Employed:
-        <input
-          value="{{employment}}"
-          type="text"
-          style="
-            border: none;
-            margin-right: 15px;
-            border-bottom: 1px solid black;
-            width: 75px;
-          "
-        />
-
-        citizenship:
-        <input
-          value="{{citizenship}}"
-          type="text"
-          style="
-            border: none;
-            margin-right: 15px;
-            border-bottom: 1px solid black;
-            width: 200px;
-          "
-        />
-      </div>
       
       <div style="text-align: left; margin-top: 55px">
-        Address:
-        <input
-          value="{{adress}}"
-          type="text"
-          style="
-            border: none;
-            margin-left: 15px;
-            margin-right: 15px;
-            border-bottom: 1px solid black;
-            width: 750px;
-          "
-        />
-      </div>
-      <div style="text-align: left; margin-top: 55px">
-        Email:
-        <input
-          value="{{email}}"
-          type="text"
-          style="
-            border: none;
-            margin-right: 15px;
-            border-bottom: 1px solid black;
-            width: 400px;
-          "
-        />
-
-
-        Phone Number:
-        <input
-          value="{{tel}}"
-          type="text"
-          style="
-            border: none;
-            margin-left: 15px;
-            margin-right: 15px;
-            border-bottom: 1px solid black;
-            width: 200px;
-          "
-        />
+        <span >Employed: <span class="line">___{{employment}}__________</span></span>
+         <span >Citizenship: <span class="line">___{{citizenship}}__________</span></span>
       </div>
 
       <div style="text-align: left; margin-top: 55px">
-        High School:
-        <input
-          value="{{high_school}}"
-          type="text"
-          style="
-            border: none;
-            margin-right: 15px;
-            border-bottom: 1px solid black;
-            width: 750px;
-          "
-        />    
+        <span >Adress: <span class="line">___{{adress}}_____</span></span>
       </div>
 
       <div style="text-align: left; margin-top: 55px">
-        Post Secondary Education:
-        <input
-          value="{{post_secondary_sch}}"
-          type="text"
-          style="
-            border: none;
-            margin-right: 15px;
-            border-bottom: 1px solid black;
-            width: 750px;
-          "
-        />
+        <span >Email: <span class="line">___{{email}}_____</span></span>
+          <span >Phone Number: <span class="line">___{{tel}}__________</span></span>
+      </div>
+          
+      <div style="text-align: left; margin-top: 55px">
+        <span >High School: <span class="line">___{{high_school}}_____</span></span>
       </div>
 
       <div style="text-align: left; margin-top: 55px">
-        Place of work:
-        <input
-          value="{{work}}"
-          type="text"
-          style="
-            border: none;
-            margin-left: 15px;
-            margin-right: 15px;
-            border-bottom: 1px solid black;
-            width: 750px;
-          "
-        />
-
+        <span>Post Secondary Education: <span class="line">___{{post_secondary_sch}}_____</span></span>
       </div>
 
       <div style="text-align: left; margin-top: 55px">
-        Have you travelled before:
-        <input
-          value="{{travel}}"
-          type="text"
-          style="
-            border: none;
-            margin-left: 15px;
-            margin-right: 15px;
-            border-bottom: 1px solid black;
-            width: 100px;
-          "
-        />
-
-        where:
-        <input
-          value="{{travel_place}}"
-          type="text"
-          style="
-            border: none;
-            margin-right: 15px;
-            border-bottom: 1px solid black;
-            width: 500px;
-          "
-        />
+        <span>Place of work: <span class="line">___{{work}}_____</span></span>
       </div>
 
       <div style="text-align: left; margin-top: 55px">
-        illness
-        <input
-          value="{{illness}}"
-          type="text"
-          style="
-            border: none;
-            margin-right: 15px;
-            border-bottom: 1px solid black;
-            width: 500px;
-          "
-        />
-
-        accommodation?:
-        <input
-          value="{{accomodation}}"
-          type="text"
-          style="
-            border: none;
-            margin-left: 15px;
-            margin-right: 15px;
-            border-bottom: 1px solid black;
-            width: 100px;
-          "
-        />
-
+        <span>Have you travelled before: <span class="line">___{{travel}}__________</span></span>
+        <span>Have you travelled before: <span class="line">___{{travel_place}}__________</span></span>
       </div>
 
-      <div style="text-align:left; margin-top: 50px">
-        native language:
-        <input
-          value="{{native_lang}}"
-          type="text"
-          style="
-            border: none;
-            margin-top: 50px;
-            margin-right: 15px;
-            border-bottom: 1px solid black;
-            width: 150px;
-          "
-        />
-        other language:
-        <input
-          value="{{other_lang}}"
-          type="text"
-          style="
-            border: none;
-            margin-right: 15px;
-            border-bottom: 1px solid black;
-            width: 150px;
-          "
-        />
+
+      <div style="text-align: left; margin-top: 55px">
+        <span>Illness: <span class="line">___{{illness}}__________</span></span>
+        <span>Accommodation: <span class="line">___{{accomodation}}_____</span></span>
       </div>
 
       <div style="text-align: left; margin-top: 55px">
-        Passport number
-        <input
-          value="{{passport_num}}"
-          type="text"
-          style="
-            border: none;
-            margin-right: 15px;
-            border-bottom: 1px solid #161c2d;
-            width: 150px;
-          "
-        />
-
-        Date Issued:
-        <input
-          value="{{issue_date_passport}}"
-          type="text"
-          style="
-            border: none;
-            margin-left: 15px;
-            margin-right: 15px;
-            border-bottom: 1px solid #161c2d;
-            width: 100px;
-          "
-        />
-
-        Date Expired:
-        <input
-          value="{{expire_date_passport}}"
-          type="text"
-          style="
-            border: none;
-            margin-right: 15px;
-            border-bottom: 1px solid #161c2d;
-            width: 100px;
-          "
-        />
+        <span>Native Language: <span class="line">___{{native_lang}}__________</span></span>
+        <span>Other Languages: <span class="line">___{{other_lang}}_____</span></span>
       </div>
+
+      <div style="text-align: left; margin-top: 55px">
+        <span>Passport number: <span class="line">___{{passport_num}}_____</span></span>
+        <span>Date Issued: <span class="line">___{{issue_date_passport}}__________</span></span>
+        <span>Date Expired: <span class="line">___{{expire_date_passport}}__________</span></span>
+      </div>
+
+
+
 
       <div style="text-align:left; margin-top: 75px">
         <p style="text-align: center;">INFORMATION ON VISA REFUSAL</p>
-        Which country<input
-          type="text"
-          value="{{visa_refusal}}"
-          style="
-            width: 150px;
-            margin-right: 25px;
-            margin-bottom: 25px;
-            border: none;
-            border-bottom: 1px solid black;
-          "
-        />
-        <br>
-        Reason?<input
-          type="text"
-          value="{{visa_refusal_reason}}"
-          style="width: 700px; border: none; border-bottom: 1px solid black"
-        />
       </div>
+
+      <div style="text-align: left; margin-top: 55px">
+        <span>Country: <span class="line">___{{visa_refusal}}__________</span></span>
+        <span>Reason: <span class="line">___{{visa_refusal_reason}}_____</span></span>
+      </div>
+
+
     </section>
   </body>
 </html>
