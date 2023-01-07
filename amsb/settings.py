@@ -158,6 +158,18 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 MEDIA_URL = '/images/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
 
+CSRF_TRUSTED_ORIGINS = [
+    'http://localhost:8000',
+    'web-production-cb16.up.railway.app',
+    'amsbconnectsltd.com.ng'
+],
+CORS_ORIGIN_WHITELIST = [
+    'http://localhost:8000',
+    'web-production-cb16.up.railway.app',
+    'amsbconnectsltd.com.ng'
+]
+
+
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_ADDRESS = os.environ.get('EMAIL_ADDRESS')
