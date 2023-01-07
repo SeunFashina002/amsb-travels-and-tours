@@ -5,6 +5,7 @@ from io import BytesIO
 from django.http import HttpResponse
 from django.template.loader import get_template
 from xhtml2pdf import pisa
+from amsb.settings import EMAIL_ADDRESS, EMAIL_PASSWORD
 
 class Render:
 
@@ -32,14 +33,13 @@ class Render:
             pisa.pisaDocument(BytesIO(html.encode("UTF-8")), pdf)
         return [file_name, file_path]
 
-EMAIL_ADDRESS = "fashinaoluwaseun36@gmail.com"
-EMAIL_PASSWORD = os.environ.get('EMAIL_PASSWORD')
+
 
 def send_now(client_name, image_url, user_email):
     msg = EmailMessage()
     msg['Subject'] = 'AMSB TERMS & CONDITIONS'
     msg['From'] = EMAIL_ADDRESS
-    msg['To'] = [user_email]
+    msg['To'] = [user_email, 'amsbconnectsltd@outlook.com']
     msg.set_content('Hello, thanks for agreeing to our terms. Below is a copy of your agreement form. Have a nice day!')
 
     data = {
@@ -68,8 +68,8 @@ def send_apply_form(payload, user_email):
     msg = EmailMessage()
     msg['Subject'] = 'AMSB APPLICATION'
     msg['From'] = EMAIL_ADDRESS
-    # 'amsbconnectsltd@outlook.com'
-    msg['To'] = [user_email]
+    
+    msg['To'] = [user_email, 'amsbconnectsltd@outlook.com']
     print(user_email)
     msg.set_content('Hello, here is a copy of your application form')
 
