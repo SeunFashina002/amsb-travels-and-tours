@@ -35,6 +35,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = ["amsbconnectsltd.com.ng", "127.0.0.1:8000", "web-production-cb16.up.railway.app"]
 
+CSRF_TRUSTED_ORIGINS = ['http://localhost:8000', 'https://web-production-cb16.up.railway.app/','https://amsbconnectsltd.com.ng']
+CORS_ORIGIN_WHITELIST = ['http://localhost:8000','https://web-production-cb16.up.railway.app','https://amsbconnectsltd.com.ng']
 
 # Application definition
 
@@ -48,6 +50,7 @@ INSTALLED_APPS = [
     'main.apps.MainConfig',
     'crispy_forms',
     'crispy_bootstrap5',
+    'corsheaders',
 ]
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = 'bootstrap5'
@@ -56,6 +59,7 @@ CRISPY_TEMPLATE_PACK = 'bootstrap5'
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     "whitenoise.middleware.WhiteNoiseMiddleware",
+    'corsheaders.middleware.CorsMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -158,16 +162,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 MEDIA_URL = '/images/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
 
-CSRF_TRUSTED_ORIGINS = [
-    'http://localhost:8000',
-    'web-production-cb16.up.railway.app',
-    'amsbconnectsltd.com.ng'
-],
-CORS_ORIGIN_WHITELIST = [
-    'http://localhost:8000',
-    'web-production-cb16.up.railway.app',
-    'amsbconnectsltd.com.ng'
-]
 
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
