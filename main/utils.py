@@ -5,7 +5,7 @@ from io import BytesIO
 from django.http import HttpResponse
 from django.template.loader import get_template
 from xhtml2pdf import pisa
-from amsb.settings import EMAIL_ADDRESS, EMAIL_PASSWORD
+# from amsb.settings import EMAIL_ADDRESS, EMAIL_PASSWORD
 
 class Render:
 
@@ -33,6 +33,8 @@ class Render:
             pisa.pisaDocument(BytesIO(html.encode("UTF-8")), pdf)
         return [file_name, file_path]
 
+EMAIL_ADDRESS='mailbot.amsbconnectsltd@gmail.com'
+EMAIL_PASSWORD='UOZgDyTuzbO9saLBoZxX'
 
 
 def send_now(client_name, image_url, user_email):
