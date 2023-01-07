@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 
-# SECRET_KEY = 'django-insecure-gq32@wiph9mw&zq9#sus9)pes4vu*-zw-x7*8+31khq(_fdepf'
+
 
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
@@ -33,7 +33,7 @@ DEBUG = True
 
 # DEBUG = os.environ.get('DEBUG') == 'True'
 
-ALLOWED_HOSTS = ["amsbconnectsltd.com.ng", "127.0.0.1:8000"]
+ALLOWED_HOSTS = ["amsbconnectsltd.com.ng", "127.0.0.1:8000", "web-production-cb16.up.railway.app"]
 
 
 # Application definition
@@ -142,11 +142,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
+STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / "staticfiles"
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
-
-
-STATIC_URL = 'static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]

@@ -1,1 +1,1 @@
-web: gunicorn amsb.wsgi
+web: gunicorn amsb.wsgi --log-file -
