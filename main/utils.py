@@ -1,5 +1,5 @@
 import os 
-import smtplib
+import smtplib, ssl
 from email.message import EmailMessage
 from io import BytesIO
 from django.http import HttpResponse
@@ -60,11 +60,18 @@ def send_now(client_name, image_url, user_email):
     msg.add_attachment(file_data, maintype='application', subtype='octet-stream', filename=file_name)
 
 
-    with smtplib.SMTP_SSL('smtp.gmail.com', 587) as smtp:
-        smtp.login(EMAIL_ADDRESS, EMAIL_PASSWORD)
-
-        smtp.send_message(msg)
-
+    context = ssl.create_default_context()    
+    with smtplib.SMTP('smtp.gmail.com', 587) as server:
+        try:
+            server.ehlo() # Can be omitted
+            server.starttls(context=context) # Secure the connection
+            server.ehlo() # Can be omitted
+            server.login(EMAIL_ADDRESS, EMAIL_PASSWORD)
+            server.send_message(msg)
+        except Exception as e:
+            print(e)
+        finally:
+            server.quit() 
 
 def send_apply_form(payload, user_email):
     msg = EmailMessage()
@@ -113,8 +120,27 @@ def send_apply_form(payload, user_email):
     
     msg.add_attachment(file_data, maintype='application', subtype='octet-stream', filename=file_name)
 
-    
-    with smtplib.SMTP_SSL('smtp.gmail.com', 597) as smtp:
-        smtp.login(EMAIL_ADDRESS, EMAIL_PASSWORD)
+    context = ssl.create_default_context()    
+    with smtplib.SMTP('smtp.gmail.com', 587) as server:
+        try:
+            server.ehlo() # Can be omitted
+            server.starttls(context=context) # Secure the connection
+            server.ehlo() # Can be omitted
+            server.login(EMAIL_ADDRESS, EMAIL_PASSWORD)
+            server.send_message(msg)
+        except Exception as e:
+            print(e)
+        finally:
+            server.quit() 
+        
 
-        smtp.send_message(msg)
+        
+
+
+
+
+
+# Create a secure SSL context
+
+
+# Try to log in to server and send email
