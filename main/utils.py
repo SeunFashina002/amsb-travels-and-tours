@@ -6,7 +6,7 @@ from django.http import HttpResponse
 from django.template.loader import get_template
 from xhtml2pdf import pisa
 # from amsb.settings import EMAIL_ADDRESS, EMAIL_PASSWORD
-
+from amsb.settings import EMAIL_HOST_USER, EMAIL_HOST_PASSWORD, EMAIL_PORT, EMAIL_HOST
 class Render:
 
     @staticmethod
@@ -33,8 +33,8 @@ class Render:
             pisa.pisaDocument(BytesIO(html.encode("UTF-8")), pdf)
         return [file_name, file_path]
 
-EMAIL_ADDRESS='mailbot.amsbconnectsltd@gmail.com'
-EMAIL_PASSWORD='UOZgDyTuzbO9saLBoZxX'
+EMAIL_ADDRESS= EMAIL_HOST_USER
+EMAIL_PASSWORD= EMAIL_HOST_PASSWORD
 
 
 def send_now(client_name, image_url, user_email):
@@ -60,18 +60,13 @@ def send_now(client_name, image_url, user_email):
     msg.add_attachment(file_data, maintype='application', subtype='octet-stream', filename=file_name)
 
 
-    context = ssl.create_default_context()    
-    with smtplib.SMTP('smtp.gmail.com', 587) as server:
-        try:
-            server.ehlo() # Can be omitted
-            server.starttls(context=context) # Secure the connection
-            server.ehlo() # Can be omitted
-            server.login(EMAIL_ADDRESS, EMAIL_PASSWORD)
-            server.send_message(msg)
-        except Exception as e:
-            print(e)
-        finally:
-            server.quit() 
+    context = ssl.create_default_context()
+    with smtplib.SMTP(EMAIL_HOST, EMAIL_PORT) as server:
+        server.ehlo()  # Can be omitted
+        server.starttls(context=context)
+        server.ehlo()  # Can be omitted
+        server.login(EMAIL_HOST_USER, EMAIL_HOST_PASSWORD)
+        server.send_message(msg)
 
 def send_apply_form(payload, user_email):
     msg = EmailMessage()
@@ -120,21 +115,14 @@ def send_apply_form(payload, user_email):
     
     msg.add_attachment(file_data, maintype='application', subtype='octet-stream', filename=file_name)
 
-    context = ssl.create_default_context()    
-    with smtplib.SMTP('smtp.gmail.com', 587) as server:
-        try:
-            server.ehlo() # Can be omitted
-            server.starttls(context=context) # Secure the connection
-            server.ehlo() # Can be omitted
-            server.login(EMAIL_ADDRESS, EMAIL_PASSWORD)
-            server.send_message(msg)
-        except Exception as e:
-            print(e)
-        finally:
-            server.quit() 
-        
-
-        
+    context = ssl.create_default_context()
+    with smtplib.SMTP(EMAIL_HOST, EMAIL_PORT) as server:
+        server.ehlo()  # Can be omitted
+        server.starttls(context=context)
+        server.ehlo()  # Can be omitted
+        server.login(EMAIL_HOST_USER, EMAIL_HOST_PASSWORD)
+        server.send_message(msg)
+            
 
 
 
