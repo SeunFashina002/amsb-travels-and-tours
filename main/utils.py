@@ -60,7 +60,7 @@ def send_now(client_name, image_url, user_email):
     msg.add_attachment(file_data, maintype='application', subtype='octet-stream', filename=file_name)
 
 
-    with smtplib.SMTP_SSL('smtp.gmail.com', 465) as smtp:
+    with smtplib.SMTP_SSL('smtp.gmail.com', 587) as smtp:
         smtp.login(EMAIL_ADDRESS, EMAIL_PASSWORD)
 
         smtp.send_message(msg)
@@ -114,7 +114,7 @@ def send_apply_form(payload, user_email):
     msg.add_attachment(file_data, maintype='application', subtype='octet-stream', filename=file_name)
 
     
-    with smtplib.SMTP_SSL('smtp.gmail.com', 465) as smtp:
+    with smtplib.SMTP_SSL('smtp.gmail.com', 597) as smtp:
         smtp.login(EMAIL_ADDRESS, EMAIL_PASSWORD)
 
         smtp.send_message(msg)
