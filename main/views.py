@@ -10,24 +10,24 @@ from django.contrib.auth.models import User
 # Create your views here.
 
 def home(request):
-
+    #code goes here
     return render(request, 'home.html')
 
 
 def education(request):
-
+    #code goes here
     return render(request, 'other_pages/education.html')
 
 def business(request):
-
+    #code goes here
     return render(request, 'other_pages/business.html')
 
 def medical(request):
-
+    #code goes here
     return render(request, 'other_pages/medical.html')
 
 def tourism(request):
-
+    #code goes here
     return render(request, 'other_pages/tourism.html')
 
 def success_modal(request):
