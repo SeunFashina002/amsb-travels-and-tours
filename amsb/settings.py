@@ -31,12 +31,12 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = True
 
-DEBUG = os.environ.get('DEBUG') == 'False'
+DEBUG = False
 
 ALLOWED_HOSTS = ["https://www.amsbconnectsltd.com.ng", "127.0.0.1:8000", "web-production-cb16.up.railway.app", "www.amsbconnectsltd.com.ng"]
 
-CSRF_TRUSTED_ORIGINS = ['http://localhost:8000', 'https://web-production-cb16.up.railway.app','https://amsbconnectsltd.com.ng', "https://www.amsbconnectsltd.com.ng"]
-CORS_ORIGIN_WHITELIST = ['http://localhost:8000','https://web-production-cb16.up.railway.app','https://amsbconnectsltd.com.ng', "https://www.amsbconnectsltd.com.ng"]
+CSRF_TRUSTED_ORIGINS = ['http://localhost:8000', 'https://web-production-cb16.up.railway.app','https://www.amsbconnectsltd.com.ng']
+CORS_ORIGIN_WHITELIST = ['http://localhost:8000','https://web-production-cb16.up.railway.app','https://www.amsbconnectsltd.com.ng']
 
 # Application definition
 
